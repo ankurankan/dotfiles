@@ -1,0 +1,2 @@
+Tutorial on install octopress again: http://willi.am/blog/2015/05/07/configuring-an-existing-octopress-site-on-a-new-machine/
+It works only on ruby1.9.1. For installiing ruby 1.9.1 install rvm and then switch to using ruby 1.9.1
