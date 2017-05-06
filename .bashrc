@@ -123,7 +123,7 @@ alias jpy="jupyter qtconsole &"
 
 # auto start tmux
 if [[ ! $TERM =~ screen ]]; then
-      exec tmux
+     exec tmux
 fi
 
 source ~/.bash/git-prompt.sh
@@ -131,3 +131,9 @@ export PS1='\[\033[1;34m\]\u@\h: \[\033[1;m\]\w\[\033[1;37m\]$(__git_ps1 " (%s)"
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 # export PS1="\u@\h \w\[\033[1;37m\]\$(__git_ps1 \" (%s)\") \[\033[1;m\]\$ "
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ankur/google-cloud-sdk/path.bash.inc' ]; then source '/home/ankur/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ankur/google-cloud-sdk/completion.bash.inc' ]; then source '/home/ankur/google-cloud-sdk/completion.bash.inc'; fi
