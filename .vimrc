@@ -95,4 +95,6 @@ set nu
 " Clipboard
 set clipboard=unnamed
 
-
+" Faster Easytags
+let g:easytags_async=1
+let g:easytags_auto_highlight=0
