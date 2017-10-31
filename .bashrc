@@ -123,7 +123,7 @@ alias jpy="jupyter qtconsole &"
 
 # auto start tmux
 if [[ ! $TERM =~ screen ]]; then
-     exec tmux
+  exec tmux
 fi
 
 source ~/.bash/git-prompt.sh
