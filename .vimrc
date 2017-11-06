@@ -24,7 +24,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'ctrlpvim/ctrlp.vim'
-
+Plugin 'flazz/vim-colorschemes'
 
 
 " All of your Plugins must be added before the following line
@@ -63,7 +63,7 @@ let g:SimpylFold_docstring_preview=1
 "    \ set fileformat=unix
 
 " Flag unnecessary white space
-"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhiteSpace /\s\+$/
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhiteSpace /\s\+$/
 
 " UTF-8 support
 set encoding=utf-8
@@ -83,7 +83,6 @@ if has('gui_running')
 else
   colorscheme zenburn
 endif
-
 call togglebg#map("<F5>")
 
 " Hide .pyc files
@@ -98,3 +97,6 @@ set clipboard=unnamed
 " Faster Easytags
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
+
+" Highlight current variable
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))

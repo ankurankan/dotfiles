@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda3 4.1.1 installer
-export PATH="/home/ankur/anaconda3/bin:$PATH"
+export PATH="/home/ankur/miniconda3/bin:$PATH"
 
 alias jpy="jupyter qtconsole &"
 
