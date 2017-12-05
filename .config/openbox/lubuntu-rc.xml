@@ -522,7 +522,7 @@
         </keybind>
         <keybind key='XF86Favorites'>
             <action name='Execute'>
-                <command>vim ~/home/ankur/pgmpy</command>
+                <command>lxterminal -e tmux new-session 'vim ~/pgmpy'</command>
             </action>
         </keybind>
         <keybind key='S-A-Left'>
