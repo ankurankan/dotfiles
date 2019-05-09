@@ -25,6 +25,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'slj/gundo.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -44,7 +46,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Enable folding
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=1
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -77,19 +79,23 @@ let python_highlight_all=1
 syntax on
 
 " Color schemes
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme zenburn
-endif
+" if has('gui_running')
+"   set background=dark
+"   colorscheme solarized
+" else
+"   colorscheme zenburn
+" endif
+set background=dark
+colorscheme zenburn
 call togglebg#map("<F5>")
 
 " Hide .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Line numbering
-set nu
+" set nonu
+set relativenumber
+set nu rnu
 
 " Clipboard
 set clipboard=unnamed
@@ -99,4 +105,19 @@ let g:easytags_async=1
 let g:easytags_auto_highlight=0
 
 " Highlight current variable
-autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+" autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
+" Set filepath for file searches
+set path+=**
+
+" Remap gj and gk to j and k respectively for going up and down one line in
+" lines spanning multiple lines.
+noremap j gj
+noremap k gk
+
+" Map jk and kj to Esc
+imap jk <Esc>
+imap kj <Esc>
+
+" Config for gundo
+nnoremap <F5> :GundoToggle<CR>
