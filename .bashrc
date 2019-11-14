@@ -117,17 +117,19 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda3 4.1.1 installer
-export PATH="/home/ankur/miniconda3/bin:$PATH"
+# export PATH="/home/ankur/miniconda3/bin:$PATH"  # commented out by conda initialize
 
 alias jpy="jupyter qtconsole &"
+alias update="printf 'Update\n=======\n' && sudo apt-get update -y && printf '\nUpgrade\n=======\n' && sudo apt-get upgrade -y && printf '\nDist-Upgrade \n============\n ' && sudo apt-get dist-upgrade -y && printf '\nAutoremove\n==========\n' && sudo apt autoremove -y"
+alias open="xdg-open"
 
 # auto start tmux
-if [[ ! $TERM =~ screen ]]; then
-  exec tmux
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#   exec tmux
+# fi
 
 source ~/.bash/git-prompt.sh
-export PS1='\[\033[1;34m\]\u@\h: \[\033[1;m\]\w\[\033[1;37m\]$(__git_ps1 " (%s)") \n\[\033[1;m\]\$ '
+export PS1='\[\033[1;37m\]\u@\h: \[\033[1;m\]\w\[\033[1;37m\]$(__git_ps1 " (%s)") \n\[\033[1;m\]\$ '
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 # export PS1="\u@\h \w\[\033[1;37m\]\$(__git_ps1 \" (%s)\") \[\033[1;m\]\$ "
@@ -137,3 +139,20 @@ if [ -f '/home/ankur/google-cloud-sdk/path.bash.inc' ]; then source '/home/ankur
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ankur/google-cloud-sdk/completion.bash.inc' ]; then source '/home/ankur/google-cloud-sdk/completion.bash.inc'; fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ankur/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ankur/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ankur/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ankur/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias weather='curl wttr.in'

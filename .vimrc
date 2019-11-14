@@ -26,7 +26,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
-Plugin 'slj/gundo.vim'
+Plugin 'python/black'
 
 
 " All of your Plugins must be added before the following line
