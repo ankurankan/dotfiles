@@ -22,12 +22,11 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-fugitive'
 Plugin 'python/black'
-
 
 " All of your Plugins must be added before the following line
 
@@ -79,45 +78,39 @@ let python_highlight_all=1
 syntax on
 
 " Color schemes
-" if has('gui_running')
-"   set background=dark
-"   colorscheme solarized
-" else
-"   colorscheme zenburn
-" endif
-set background=dark
-colorscheme zenburn
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
 call togglebg#map("<F5>")
 
 " Hide .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Line numbering
-" set nonu
+set nonu
 set relativenumber
-set nu rnu
 
 " Clipboard
 set clipboard=unnamed
 
 " Faster Easytags
-let g:easytags_async=1
-let g:easytags_auto_highlight=0
+"let g:easytags_async=1
+"let g:easytags_auto_highlight=0
 
 " Highlight current variable
-" autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 " Set filepath for file searches
 set path+=**
 
-" Remap gj and gk to j and k respectively for going up and down one line in
-" lines spanning multiple lines.
-noremap j gj
-noremap k gk
-
-" Map jk and kj to Esc
+" Use jk for Escape
 imap jk <Esc>
 imap kj <Esc>
 
-" Config for gundo
-nnoremap <F5> :GundoToggle<CR>
+" Single line movement when line on multiple lines.
+noremap j gj
+noremap k gk
+
