@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=-1
+HISTFILESIZE=-1
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -72,29 +72,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -116,17 +95,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 4.1.1 installer
-# export PATH="/home/ankur/miniconda3/bin:$PATH"  # commented out by conda initialize
-
-alias jpy="jupyter qtconsole &"
-alias update="printf 'Update\n=======\n' && sudo apt-get update -y && printf '\nUpgrade\n=======\n' && sudo apt-get upgrade -y && printf '\nDist-Upgrade \n============\n ' && sudo apt-get dist-upgrade -y && printf '\nAutoremove\n==========\n' && sudo apt autoremove -y"
-alias open="xdg-open"
-
 # auto start tmux
-# if [[ ! $TERM =~ screen ]]; then
-#   exec tmux
-# fi
+if [[ ! $TERM =~ screen ]]; then
+  exec tmux
+fi
 
 source ~/.bash/git-prompt.sh
 export PS1='\[\033[1;37m\]\u@\h: \[\033[1;m\]\w\[\033[1;37m\]$(__git_ps1 " (%s)") \n\[\033[1;m\]\$ '
@@ -155,4 +127,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias weather='curl wttr.in'
+# Set editor to nvim
+export EDITOR='nvim'
+
+# Set paths for go
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Projects/Proj1
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
