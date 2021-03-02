@@ -29,3 +29,8 @@ alias rtv='conda activate py36; rtv --enable-media'
 
 # Alias to check weather
 alias weather='curl wttr.in/Nijmegen'
+
+# Alias for attaching tmux sessions
+alias t='tmux attach -t '
+alias td='tmux detach'
+

@@ -96,9 +96,9 @@ if ! shopt -oq posix; then
 fi
 
 # auto start tmux
-if [[ ! $TERM =~ screen ]]; then
-  exec tmux
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#   exec tmux
+# fi
 
 source ~/.bash/git-prompt.sh
 export PS1='\[\033[1;37m\]\u@\h: \[\033[1;m\]\w\[\033[1;37m\]$(__git_ps1 " (%s)") \n\[\033[1;m\]\$ '
@@ -134,3 +134,5 @@ export EDITOR='nvim'
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/Projects/Proj1
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

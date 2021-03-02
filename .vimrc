@@ -1,49 +1,33 @@
-set nocompatible     "required
-filetype off         "required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'python/black'
-Plugin 'christoomey/vim-tmux-navigator'
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tmhedberg/SimpylFold'
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'xolox/vim-misc'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'jalvesaq/Nvim-R'
 
 " All of your Plugins must be added before the following line
 
-call vundle#end()     "required
+call plug#end()     "required
 filetype plugin indent on "required
 
+
+"split navigations
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Enable folding
 set foldmethod=indent
@@ -71,10 +55,6 @@ let g:SimpylFold_docstring_preview=1
 " UTF-8 support
 set encoding=utf-8
 
-" Auto-complete settings
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 " Pretty code
 let python_highlight_all=1
 syntax on
@@ -101,10 +81,6 @@ set nu rnu
 " Clipboard
 set clipboard=unnamed
 
-" Faster Easytags
-let g:easytags_async=1
-let g:easytags_auto_highlight=0
-
 " Highlight current variable
 " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -120,9 +96,3 @@ noremap k gk
 imap jk <Esc>
 imap kj <Esc>
 
-" Config for gundo
-nnoremap <F5> :GundoToggle<CR>
-
-" Config for increasing and decreasing number
-nnoremap <A-a> <C-a>
-nnoremap <A-x> <C-x>
