@@ -84,8 +84,9 @@ set clipboard=unnamed
 " Highlight current variable
 " autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
-" Set filepath for file searches
+" Set filepath for file searches and ignore pyc
 set path+=**
+set wildignore=*.pyc
 
 " Remap gj and gk to j and k respectively for going up and down one line in
 " lines spanning multiple lines.
